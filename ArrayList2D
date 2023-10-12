@@ -1,0 +1,40 @@
+import java.util.ArrayList;
+
+public class ArrayList2D {
+
+    public static void main(String[] args) {
+
+            //2D ArrayList = dynamic list of lists
+            //             = you can change the size of these lists during runtime
+            //             =dynamický seznam listu
+           //                můžete změnit velikost těchto seznamů za běhu
+
+        ArrayList<ArrayList<String>> gloceryList = new ArrayList<>();
+
+        ArrayList<String> backeryList = new ArrayList<>();
+        backeryList.add("pasta");
+        backeryList.add("garlic bread");
+        backeryList.add("donuts");
+
+        ArrayList<String> produceList = new ArrayList<>();
+        produceList.add("tomato");
+        produceList.add("zucchini");
+        produceList.add("peppers");
+
+        ArrayList<String> drinkList = new ArrayList<>();
+        drinkList.add("soda");
+        drinkList.add("coffee");
+
+        gloceryList.add(backeryList);
+        gloceryList.add(produceList);
+        gloceryList.add(drinkList);
+
+
+        System.out.println(gloceryList); // dostanu list se vsema listy
+
+        System.out.println(gloceryList.get(0).get(0)); // dostanu z 1. seznamu 1. plozku
+
+
+
+    }
+}
