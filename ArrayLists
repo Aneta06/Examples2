@@ -1,0 +1,142 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Arrays;
+import java.util.List;
+
+public class ArrayLists {
+    public static void main(String[] args) {
+
+        // ArrayList can use only objects ( NOT primitive types )
+        // We specify the type (if we want to) on the declaration side (left) , no need in initialisation (right)
+        // Every constructor ends with "()" even if no arguments given
+
+        // ArrayList může používat pouze objekty (NE primitivní typy)
+         // Typ specifikujeme (pokud chceme) na straně deklarace (vlevo), není potřeba inicializace (vpravo)
+         // Každý konstruktor končí "()", i když nejsou uvedeny žádné argumenty
+
+        ArrayList<Integer> nums = new ArrayList<>();
+
+        // METHODS
+
+        // nums.add(number) - Adds a number at the end of the ArrayList
+        // nums.add(index, number) - Adds a number at the specified index and shifts the rest
+        // nums.remove(index) - Removes a value from ArrayList at index and reformats indexes in ArrayList
+
+        // nums.add(číslo) - Přidá číslo na konec ArrayList
+         // nums.add(index, číslo) - Přidá číslo na zadaný index a posune zbytek
+         // nums.remove(index) - Odebere hodnotu z ArrayList v indexu a přeformátuje indexy v ArrayList
+
+            nums.add(1);
+            nums.add(2);
+            nums.add(3);
+            nums.add(3, 4);
+
+        // to print value at i, we need to use nums.get(i) method, NOT nums[i] unlike Arrays
+        // To find the amount of values stored in ArrayList we need nums.size() method, NOT nums.lenght() unlike Arrays
+
+        // k vytištění hodnoty na i musíme použít metodu nums.get(i), NE nums[i] na rozdíl od Arrays
+         // K nalezení množství hodnot uložených v ArrayList potřebujeme metodu nums.size(), NE nums.lenght() na rozdíl od Arrays
+
+            for (int i=0; i < nums.size(); i++) {
+                System.out.printf("Index: %d  ;  Number: %d\n", i, nums.get(i)); // 
+            }
+
+        System.out.println("----------");
+
+        // We can still use the enhanced for loop just like with Arrays (if we don't need index count)
+      // Stále můžeme použít vylepšenou smyčku for stejně jako u Arrays (pokud nepotřebujeme počet indexů)
+            for (int number : nums) {  // slovo nums je pocet kolikrat to projede podle poctu indexu, takze tady jsou to 4
+                System.out.printf("Number: %d\n", number); // to slovo number je ta hodnota v tom indexi
+            }
+
+        // SWAP first and last element of ArrayList using nums.set(index, value) method
+        // vyměnit první a poslední prvek ArrayList pomocí metody nums.set(index, value).
+           int temp = nums.get(0); //vytvorim novou promennou doktery vlozim cislo na nultzm indexu coz je jedna 1
+        nums.set(0, nums.get(2)); // metodou nums.set dam na index 0, prvek ktery je na indexu 2
+        nums.set(2, temp); // a na index dva 2 dam to co bylo na indexu 0  a ted to mame v promenne temp
+
+
+     //   System.out.println(nums); // vysledek je teda ze se prohodili cisla z
+                                    // indexu 0 a 2, takze se prohodi cisla 1 z nultyho
+                                     //    s cislem 3 y druhyho indexu
+
+
+            System.out.println("---ELEMENT SWAP----");   // nums je pocet kolikrat se to udela kdyz jsou tam 4 prvkz tak 4x
+                        for (int number : nums) {          // number je to cislo daneho indexu jak jdou po sobe,
+             System.out.printf("Number: %d\n", number);      //muze byt jakykoliv cislo, je to jako u normalni loopy i                      
+                                                       
+           
+            }
+
+        //  ITERATOR
+            Iterator individual = nums.iterator();
+
+            // Iterates through our nums ArrayList and as long as there are more numbers, it will print them one by one
+            //Iteruje přes naše nums ArrayList a pokud existuje více čísel, bude je tisknout jedno po druhém
+            while(individual.hasNext()) {      // tahle metoda tiskne jedno cislo po druhem, pod sebe
+                System.out.println(individual.next());
+            }
+
+        // Copy an entire collection into a new one with "new.addAll(original)" method
+         // Zkopírujte celou kolekci do nové pomocí metody "new.addAll(original)".
+            ArrayList<Integer> copyNums = new ArrayList<>();
+            copyNums.addAll(nums);
+
+            System.out.println(nums);           // Output: [3, 2, 1, 4]
+            System.out.println(copyNums);       // Same output
+
+        // Check if a particular value is in the collection using .contains method
+        // Zkontrolujte, zda je určitá hodnota v kolekci pomocí metody .contains
+            int newNumber = 10;
+            nums.add(newNumber);
+            if (nums.contains(newNumber)) {
+                System.out.println("Number " + newNumber + " is in the ArrayList.");
+            }
+
+        //  Check if an entire collection is included in another collection
+        //Zkontrolujte, zda není celá kolekce zahrnuta do jiné kolekce
+            if (nums.containsAll(copyNums)) {                           // Evaluates to true as nums has all elements of copyNums + one extra(newNumber)
+                                                                        // Vyhodnocuje se jako true, protože nums má všechny prvky copyNums + jeden navíc (newNumber)
+                System.out.println("Everything is included");           // If other way around => would evaluate to false.
+                                                                        //V opačném případě by => bylo vyhodnoceno jako nepravda.
+            }
+
+        // Delete every element inside of ArrayList and check using .isEmpty() method
+        // Smaže každý prvek uvnitř ArrayList a zkontroluje pomocí metody .isEmpty().
+        
+            nums.clear();
+            if (nums.isEmpty()) {
+                System.out.println("ArrayList is empty.");
+            }
+
+        // Copy an ArrayList inside of a new Array.
+        //  1. Create new generic object with fixed length, use .toArray() method to convert and put inside moreNums variable
+        // Zkopírujte ArrayList do nového pole.
+         // 1. Vytvořte nový obecný objekt s pevnou délkou, použijte metodu .toArray() pro převod a vložte do proměnné moreNums
+            Object[] moreNums = new Object[4];
+            moreNums = copyNums.toArray();
+            System.out.println(Arrays.toString(moreNums));      // Output: [3, 2, 1, 4]    (as array)
+
+        // convert values into a list [1, 2, 3, 4] and add it to our nums List.
+        // Both examples do the same thing.
+        // převede hodnoty do seznamu [1, 2, 3, 4] a přidá jej do našeho seznamu čísel.
+         // Oba příklady dělají totéž.
+            nums.addAll(Arrays.asList(1, 2, 3, 4));
+            nums.addAll(Arrays.asList(new Integer[] {1, 2, 3, 4}));
+
+
+            List<Integer> ListExample = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+
+
+                            /// DIFFERENCES
+
+        //      Arrays                         // ArrayLists
+
+        //      []                              <>
+        //      Objects/Primitive types         Objects Only/ not primitive types (Integer, Char, String)
+        //      Fixed size                      Flexible size
+        //      array[i]                        arrayList.get(i)
+        //      array.length()                  arrayList.size()
+
+    }
+}
