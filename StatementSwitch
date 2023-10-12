@@ -1,0 +1,40 @@
+public class StatementSwitch {
+
+    public static void main(String[] args) {
+
+        // switch statement that allows a variable to be tested for equality against a list of values
+        //příkaz switch, který umožňuje testovat proměnnou na rovnost se seznamem hodnot
+
+        //vvytiskne se hlaska podle toho jakej sem yadala den
+        //kdyz se zada neco co neni na vyber mela bych tam dat default aby napsalo ze to neni den
+
+
+        String day = "Thursday";
+
+        switch (day) {
+            case "Monday":
+                System.out.println("It is Monday");
+                break;
+            case "Tuesday":
+                System.out.println("It is Tuesday");
+                break;
+            case "Wednesday":
+                System.out.println("It is Wednesday");
+                break;
+            case "Thursday":
+                System.out.println("It is Thursday");
+                break;
+            case "Friday":
+                System.out.println("It is Friday");
+                break;
+            case "Saturday":
+                System.out.println("It is Saturday");
+                break;
+            case "Sunday":
+                System.out.println("It is Sunday");
+                break;
+            default:
+                System.out.println("It is not a day!");
+        }
+    }
+}
