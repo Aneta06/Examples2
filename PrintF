@@ -1,0 +1,61 @@
+public class PrintF {
+
+    public static void main(String[] args) {
+
+
+               // printf() = an optional method to control format and display texts to the console window
+               //          = to arguments = format string + (object/ variable/ value)
+               //          = % [flags] [precision] [width] [conversion-character]
+
+              //          = volitelná metoda pro ovládání formátu a zobrazování textů v okně konzoly
+              //          = na argumenty = formátovací řetězec + (hodnota/ proměnné/ objektu)
+              //          = % [vlajky] [přesnost] [šířka] [konverze-znak]
+
+       // System.out.printf("This is format String %d", 123); // tiskne This is format String 123
+                                                            // pismeno d je decimal number to 123
+
+       // System.out.printf("%d This is format String", 123); // tiskne 123 This is format String
+
+        boolean myBoolean = true;
+        String myString = "Aneta";
+        char myChar = '@';
+        int myInt = 50;
+        double myDouble = 1000;
+
+
+        //  [conversion-character]
+//        System.out.printf("%b",myBoolean);
+//        System.out.printf("%s",myString);
+//        System.out.printf("%c",myChar);
+//        System.out.printf("%d",myInt);
+//        System.out.printf("%f",myDouble);
+
+
+        // [width]
+        // minimum number of characters to be written as output
+       // System.out.printf("Hello %10s", myString); // output: Hello      Aneta
+
+
+        // [precision]
+        // set number of digits of precision when outputing floating-point values
+        // nastavit počet číslic přesnosti při výstupu hodnot s plovoucí desetinnou čárkou
+       // System.out.printf("You have this much money %f ", myDouble); // output: You have this much money 1000,000000
+       // System.out.printf("You have this much money %.2f ", myDouble); // nastavy dve desetiny cisla .... money 1000,00
+
+        // [flags]
+        // adds an effect to output based on the flag added to format specifier
+        // přidává na výstup efekt na základě příznaku přidaného do specifikátoru formátu
+        // - : left justify // zarovnat doleva
+        // + : output a plus ( + ) or minus ( - ) sign for a numeric value // výstup znaménka plus nebo mínus pro číselnou hodnotu
+        // 0 : numeric values are zero padded // číselné hodnoty jsou nulové
+        // , : comma grouping separators if numbers > 1000 // oddělovače seskupení čárkou, pokud jsou čísla > 1000
+
+        System.out.printf("You have this much money %,f ", myDouble); //You have this much money 1 000,000000
+       // System.out.printf("You have this much money %-20f ", myDouble); //You have this much money 1000,000000 (prostor za)
+
+
+
+
+
+    }
+}
