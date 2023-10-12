@@ -1,0 +1,21 @@
+import java.util.Random;
+
+public class RandomNumber {
+
+    public static void main (String[] args){
+
+        Random myRandom = new Random();
+
+        int x = myRandom.nextInt(5)+1; // vybira cisla od 0 do 4
+        // myRandom.nextInt(5)+1; // bude to davat cisla od 1 jedne do 5
+
+        System.out.println(x);
+
+        double y = myRandom.nextDouble(); // dava to cisla od 0 do 1
+        System.out.println(y);
+
+        boolean z = myRandom.nextBoolean(); // bude vypisovat true, nebo false
+        System.out.println(z);
+
+    }
+}
