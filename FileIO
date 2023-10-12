@@ -1,0 +1,100 @@
+package example;
+
+import jdk.dynalink.StandardOperation;
+
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Example {
+
+    public static void main(String[] args) {
+
+
+      //  writeToFile("jsbcsdbckjbsj sbcjdbcjkb nckjsbcjdbbc", "src/example/new_file.txt");
+
+       // appendToFile("cnckjnsjc bcjsbcjn lsndjcnlsk", "src/example/new_file.txt");
+
+        List<String> fileNew = readFile("src/example/new_file.txt");
+
+        fileNew.remove(6);
+
+        writeToFileTxt(fileNew, "src/example/new_file.txt");
+
+      //  fileNew.remove(6);
+
+       // System.out.println(fileNew.get(1));
+
+        for (int i = 0; i < fileNew.size(); i++) {
+
+            System.out.println(fileNew.get(i));
+
+        }
+
+    }
+
+    public static List<String> readFile(String file) {
+        Path somePath = Paths.get(file);
+
+        try {
+            List<String> fileLines = Files.readAllLines(somePath);
+            return fileLines;
+        } catch (IOException e) {
+            System.err.println("Unable to read file.");
+            return new ArrayList<>();
+        }
+
+    }
+
+    public static void writeToFile(String newText, String file) {
+
+        List<String> temporary = new ArrayList<>();
+        temporary.add(newText);
+        Path somePath = Paths.get(file);
+
+
+        try {
+            Files.write(somePath, temporary);
+        } catch (IOException e) {
+            System.err.println("Unable to write to file.");
+
+        }
+
+
+    }
+
+    public static void appendToFile(String newText, String file) {
+
+        List<String> temporary = new ArrayList<>();
+        temporary.add(newText);
+        Path somePath = Paths.get(file);
+
+
+        try {
+            Files.write(somePath, temporary, StandardOpenOption.APPEND);
+        } catch (IOException e) {
+            System.err.println("Unable to append to file.");
+        }
+
+        }
+
+    public static void writeToFileTxt(List<String> newText, String file) {
+
+
+        Path somePath = Paths.get(file);
+
+        try {
+            Files.write(somePath, newText);
+        } catch (IOException e) {
+            System.err.println("Unable to write to file.");
+
+        }
+
+    }
+
+    }
