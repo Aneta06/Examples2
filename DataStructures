@@ -122,14 +122,14 @@ public class DataStructures {
 
         nakup.containsKey("rohlik");                            // Vrací boolean true, pokud Mapa obsahuje záznam s klíčem "rohlik". Jinak false
         nakup.values();                                         // Vrací kolekci všech hodnot [12, 1, 3] v Mapě. Ale nevíme, k čemu patří
-        nakup.keySet();
+        
 
         nakup.keySet();                                         // Vrací set všech klíčů v mapě [vejce, mliko, maslo]
         nakup.entrySet();                                       // Vrací set párů [vejce=12, mliko=1, maslo=3]
 
         // Poznámka: Do HashMap nemůžeme indexovat. Prvky totiž mohou mít vždy různé pořadí.
-        // Poznámka 2: Pro vyhledání záznamu podle klíče můžeme použít metodu get. Pokud ale chceme vyhledat
-        //              záznam podle hodnoty, musíme použít loop a iterovat celým entry setem než hodnotu najdeme.
+        // Poznámka 2: Pro vyhledání value podle klíče můžeme použít metodu get. Pokud ale chceme vyhledat
+        //              klíč podle hodnoty, musíme použít loop a iterovat celým entry setem, nebo keysetem než hodnotu najdeme.
 
 
         Map<String, Integer> docasnaMapa = new HashMap<>();
